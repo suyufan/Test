@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.5.1.js" type="text/javascript"></script>
+    <script >
+        $(function (){
+            //聚焦邮箱地址时清空
+            $("#address").focus(function (){
+                var text_val = $(this).val()
+                if(text_val=="请输入邮箱地址"){
+                    $(this).val("")
+                }
+            })
+            //没有聚焦邮箱地址时，还原默认值
+            $("#address").blur(function (){
+                var text_val = $(this).val()
+                if(text_val != this.defaultValue){
+                    $(this).val(this.defaultValue)
+                }
+            })
+            //聚焦密码框时清空
+            $("#password").focus(function (){
+                var text_val = $(this).val()
+                if(text_val == this.defaultValue){
+                    $(this).val("")
+                }
+            })
+            //没有聚焦密码框时还原默认值
+            $("#password").blur(function (){
+                var text_val = $(this).val()
+                if(text_val != this.defaultValue){
+                    $(this).val(this.defaultValue)
+                }
+            })
+        });
+    </script>
+</head>
+<body>
+    <input type="text" id="address" value="请输入邮箱地址"/>    <br></br>
+    <input type="text" id="password" value="请输入密码"/> <br></br>
+    <input type="button" value="登录"/>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.5.1.js" type="text/javascript"></script>
+    <script>
+       $(function(){
+           $("#sub").bind("click",function(event){
+               var username = $("#username").val()
+               if(username == ""){
+                   $("#msg").append("<p>文本内容不能为空</p>")
+                   return false //event.preventDefault 阻止默认行为（表单提交）
+               }
+           })
+       })
+    </script>
+</head>
+<body>
+    <form action="test.html">
+        用户名：<input type="text" id="username"/>
+        <input type="submit" value="提交" id="sub" />
+    </form>
+    <div id="msg"></div>
+</body>
+</html>

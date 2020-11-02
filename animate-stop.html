@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #panet{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border: 1px solid #bbbbbb;
+            background: #96E555;
+            cursor: pointer;
+        }
+    </style>
+    <script src="jquery-3.5.1.js" type="text/javascript"></script>
+    <script>
+        $(function() {
+            $("#panet").hover(function() {
+                //移入
+                $(this).stop(true)     //传参数true,在移出之后清空移入时未执行完的动画，避免移出之后还在执行移入的动画
+                                .animate({height:"500px"},4000)
+                                .animate({width:"200px"},3000)
+                //移出
+            },function() {
+                $(this).stop(true)
+                                .animate({height:"20px"},3000)
+                                .animate({width:"90px"},8000)
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="panet">
+    </div>
+</body>
+</html>

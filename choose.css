@@ -1,0 +1,22 @@
+@charset "utf-8";
+div.one{
+    width: 140px;
+    height: 140px;
+    margin: 5px;
+    border: #000 1px solid;
+    float: left;
+    font-size: 17px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+div.mini{
+    width: 55px;
+    height: 55px;
+    border: #000 1px solid;
+    background-color: #aaa;
+    font-size: 12px;
+    margin: 5px;
+    float: left;
+}
+div.hide{
+    display: none;
+}

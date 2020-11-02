@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.5.1.js" type="text/javascript"></script>
+    <script>
+        $(function (){
+            var x = 10
+            var y = 20
+            //传一个参数e，用于后面获取坐标
+            $("a.tooltip").mouseover(function(e){
+                //滑入时显示title
+                this.myTitle = this.title   //将title值赋给mytitle
+                this.title = "" //将原本的title置空
+                //创建一个div，div的内容为title的属性值
+                var tooltip = "<div id='tooltip'>"+this.myTitle+"</div>"
+                //将新创建的div元素追加到文档中
+                $("body").append(tooltip)
+                //为其设置css属性  
+                $("#tooltip")
+                .css({
+                        "top":(e.pageY+y) + "px",
+                        "left":(e.pageX+x) + "px",
+                        "position":"absolute"
+                }).show("fast").slideDown("slow")
+            }).mousemove(function(e) {
+                //随鼠标移动显示title
+                $("#tooltip")
+                .css({
+                    "top":(e.pageY+y) + "px",
+                    "left":(e.pageX+x) + "px"
+                })
+            }).mouseout(function() {
+                //滑出隐藏title
+                this.title = this.myTitle
+                $("#tooltip").remove()
+            })
+        })
+    </script>
+</head>
+<body>
+    <p><a href="#" class="tooltip" title="这是我的超链接提示1">提示1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq</a></p>
+    <p><a href="#" class="tooltip" title="这是我的超链接提示2">提示2qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq</a></p>
+    <p><a href="#" title="这是自带提示1">自带提示1</a></p>
+    <p><a href="#" title="这是自带提示2">自带提示2</a></p>
+</body>
+</html>
